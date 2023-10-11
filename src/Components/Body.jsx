@@ -7,22 +7,30 @@ import { Link } from 'react-router-dom';
 import { filterData } from './utils/useFilter';
 import {useOnline} from './utils/useOnline';
 import UserContext from './utils/UserContext';
+import { addItem } from './utils/cartSlice';
+import { useDispatch } from 'react-redux';
 
 
   const RestaurantCard=({title,price,category,image,rating})=>{
     const {user} = useContext(UserContext)
+
+    const dispatch = useDispatch()
+    const handleAddItem = ()=>{
+      dispatch(addItem("Tiwari"))
+    }
     return(
-    <div className=' min-h-128 mt-3 bg-black text-white w-80 ml-14 text-center font-mono border border-white text-l'>
+    <div className=' h-[520px] mt-3 bg-black text-white w-80 ml-14 text-center font-mono border border-white text-l'>
       <img className='h-80 w-full  border   border-black'alt="no"src={image} />
         <h1 className='mt-5'>{category}</h1>
         {/* <h1>{title}</h1> */}
       <h1>{user.name}</h1>
       <h1>{price}</h1>
       <h1>rating:{rating.rate}</h1>
-    
-     
-      <button className='border border-white p-1 font-sans bg-green-700 mt-9 '>Buy Now</button>
-
+ <Link to='/cart'>
+            
+            
+      <button className='border border-white p-1 font-sans bg-green-700 mt-9 ' onClick={()=>handleAddItem()}>Add Items</button>
+ </Link>
     </div>
     )
 
@@ -81,13 +89,16 @@ setSearch(e.target.value)
               email:"newemaik.com"
             })}} />
         </div>
+
       <div className="flex flex-wrap flex-start">
         
         {
           filteredrestaurants.map((restaurant)=>{
             
-            return <Link to='/about'><RestaurantCard {...restaurant}/>
-            </Link>
+            return   <RestaurantCard {...restaurant}/>
+            // <Link to='/about'>
+            
+            // </Link>
           })
           }
         

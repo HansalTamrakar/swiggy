@@ -15,7 +15,10 @@ import { Profile } from './Components/Profile';
 import { Suspense, lazy } from 'react';
 import Shimmer from './Components/Shimmer';
 import { useContext } from 'react';
+import { Provider } from 'react-redux';
 import UserContext from './Components/utils/UserContext';
+import store from './Components/utils/store';
+import Cart from './Components/Cart';
  const Instamarts = lazy(()=>import("./Components/Instamarts"))
  const AppLayout = () => {
   const [user,setUser]=useState({
@@ -24,7 +27,7 @@ import UserContext from './Components/utils/UserContext';
   })
     return (
       <div className='applayout'>
-        
+        <Provider store={store}>
         <UserContext.Provider
         value={{
           user:user,
@@ -35,6 +38,7 @@ import UserContext from './Components/utils/UserContext';
        <Outlet />
         <Footer />
         </UserContext.Provider>
+        </Provider>
       </div>
     )
   }
@@ -76,6 +80,9 @@ children:[
    
 
 
+},
+{path:"/cart",
+element:<Cart />,
 }
 ]
 }])
