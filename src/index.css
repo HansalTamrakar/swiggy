@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .shimmer-card{
+  width: 200px;
+  height: 400px;
+  background-color: rgb(214, 192, 192);
+  margin:20px;
+  flex-wrap: wrap;
 }
+.div-class{
+  text-align: center;
+  font-family: serif;
+  height: 450px;
+  width: 300px;
+  border:1px solid black;
+  margin: 30px;
+    padding: 3px;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
+.div-class>img{
+  height:250px;
+  width: 100%;
+}
+.divv{
+  display: flex;
+  flex-wrap: wrap;
+ 
+} */
